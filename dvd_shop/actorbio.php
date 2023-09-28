@@ -1,6 +1,6 @@
 <?php
     require 'conn.php';
-    $sql = "SELECT * FROM memberid";
+    $sql = "SELECT * FROM actorid";
     $result = $conn->query($sql);
     if(!$result){
         die("Error : ". $conn->$conn_error);
@@ -12,9 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta a_name="viewport" content="wa_idth=device-wa_idth, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <style>
+        <style>
 * {box-sizing: border-box;}
 
 body { 
@@ -78,23 +78,23 @@ body {
         <div class="header">
             <a href="index.php" class="logo">DVD Shop</a>
                 <div>
-                    <a class="active" href="mainmenu.php">Member</a>
+                    <a href="mainmenu.php">Member</a>
                     <a href="movie.php">Movie</a>
-                    <a href="actorbio.php">Actor</a>
+                    <a class="active" href="actorbio.php">Actor</a>
 
                 </div>
         </div>
     </header>
 
-
     <div class="container">
+
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col-4">ชื่อ-นามสกุล</th>
-                    <th scope="col-4">อีเมล</th>
-                    <th scope="col-4">เบอร์โทร</th>
+                    <th scope="col-4">วันเกิด</th>
+                    <th scope="col-4">หนังที่เล่น</th>
                     <th scope="col-4">Edit</th>
                 </tr>
             </thead>
@@ -102,8 +102,8 @@ body {
                 <?php
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>".$row["id"]."</td>"."<td>".$row["name"]." ".$row["lastname"]."</td>"."<td>".$row["email"]."</td>"."<td>".$row["telephone"]."</td>"."<td>".
-                                 "<a class='btn btn-warning' href='editbio.php?id=".$row["id"]."'>Edit</a>"."</td>";
+                            echo "<tr><td>".$row["a_id"]."</td>"."<td>".$row["a_name"]." ".$row["a_lastname"]."</td>"."<td>".$row["a_bdate"]."</td>"."<td>".$row["a_movie"]."</td>"."<td>".
+                                 "<a class='btn btn-warning' href='editactor.php?a_id=".$row["a_id"]."'>Edit</a>"."</td>";
                             echo "</tr>";    
                         }
                     }else {
@@ -113,7 +113,7 @@ body {
                 ?>
             </tbody>
         </table>
-        <a class="btn btn-success" href='insertbio.php'>Insert Member</a>
+        <a class="btn btn-success" href='insertactorbio.php'>Insert Actor</a>
     </div>
 </body>
 

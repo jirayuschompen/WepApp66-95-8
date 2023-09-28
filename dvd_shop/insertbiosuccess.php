@@ -12,4 +12,4 @@ echo "Insert Success <br>";
 header("refresh: 1; url=http://localhost/dvd_shop/mainmenu.php");
 }
 
-?>
+?>  

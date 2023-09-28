@@ -1,0 +1,45 @@
+<?php
+    require 'conn.php';
+    $sql = "SELECT * FROM member_dvd";
+    $result = $conn->query($sql);
+    if(!$result){
+        die("Error : ". $conn->$conn_error);
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+
+<body class="container">
+    <form id="form1" name="form1" method="post" action="moviebuysuccess.php">
+        
+        <p>
+            <input type="text" name="mb_id" id="mb_id" hidden>
+        </p>
+
+        <p>
+
+            <label for="pid">รหัสสมาชิก</label>
+            <input class="form-control" type="text" name="m_id" id="m_id">
+
+        </p>
+        
+        <p>
+            <label for="movieid">รหัสหนัง</label>
+            <input class="form-control" type="text" name="d_id" id="d_id" value="<?php echo isset($_GET['d_id']) ? $_GET['d_id'] : ''; ?>"/>
+
+        </p>
+        <input type="submit" class="btn btn-success" value="บันทึก">
+        <a class="btn btn-success" href='movie.php'>Home</a>
+    </form>
+</body>
+
+</html>

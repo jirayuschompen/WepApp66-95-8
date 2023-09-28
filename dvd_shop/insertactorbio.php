@@ -10,47 +10,47 @@
 </head>
 
 <body class="container">
-    <form id="form1" name="form1" method="post" action="insertbiosuccess.php">
+    <form id="form1" name="form1" method="post" action="insertactorbiosuccess.php">
         
         <p>
 
 
-            <input type="text" name="id" id="id" hidden>
+            <input type="text" name="a_id" id="a_id" hidden>
 
         </p>
 
         <p>
 
-            <label for="name">ชื่อ</label>
-            <input type="text" name="name" id="name">
+            <label for="a_name">ชื่อ</label>
+            <input type="text" name="a_name" id="a_name">
 
         </p>
 
         <p>
 
-            <label for="lastname">นามสกุล</label>
+            <label for="a_lastname">นามสกุล</label>
 
-            <input type="text" name="lastname" id="lastname">
-
-        </p>
-
-        <p>
-
-            <label for="email">อีเมล</label>
-
-            <input type="text" name="email" id="email">
+            <input type="text" name="a_lastname" id="a_lastname">
 
         </p>
 
         <p>
 
-            <label for="telephone">เบอร์โทร</label>
+            <label for="a_bdate">วันเกิด</label>
 
-            <input type="text" name="telephone" id="telephone">
+            <input type="date" name="a_bdate" id="a_bdate">
+
+        </p>
+
+        <p>
+
+            <label for="a_movie">หนังที่เล่น</label>
+
+            <input type="text" name="a_movie" id="a_movie">
 
         </p>
         <input type="submit" class="btn btn-success" value="บันทึก">
-        <a class="btn btn-success" href='mainmenu.php'>Home</a>
+        <a class="btn btn-success" href='actorbio.php'>Home</a>
     </form>
 </body>
 

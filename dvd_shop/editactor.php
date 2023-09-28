@@ -1,9 +1,9 @@
 <?php
-if(!isset($_GET['id'])){
+if(!isset($_GET['a_id'])){
     header("refresh: 0; url=http://localhost/dvd_shop/mainmenu.php");
 }
 require 'conn.php';
-$sql = "SELECT * FROM memberid WHERE id='$_GET[id]'";
+$sql = "SELECT * FROM actorid WHERE a_id='$_GET[a_id]'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_array($result);
 ?>
@@ -22,42 +22,42 @@ $row = mysqli_fetch_array($result);
 <body class="container">
             
         
-<form id="form1" name="form1" method="post" action="editsuccess.php">
+<form id="form1" name="form1" method="post" action="editactorsuccess.php">
         <p>
 
         <label for="id">ID</label>
-        <?php echo $row["id"]?>
+        <?php echo $row["a_id"]?>
 
         </p>
 
         <p>
 
-            <label for="name">ชื่อ</label>
-            <input type="text" name="id" id="id" value="<?=$row['id'];?>" hidden>
-            <input type="text" name="name" id="name" value="<?=$row['name'];?>" />
+            <label for="a_name">ชื่อ</label>
+            <input type="text" name="a_id" id="a_id" value="<?=$row['a_id'];?>" hidden>
+            <input type="text" name="a_name" id="a_name" value="<?=$row['a_name'];?>" />
 
         </p>
 
         <p>
 
-            <label for="lastname">นามสกุล</label>
+            <label for="a_lastname">นามสกุล</label>
 
-            <input type="text" name="lastname" id="lastname" value="<?=$row['lastname'];?>" />
+            <input type="text" name="a_lastname" id="a_lastname" value="<?=$row['a_lastname'];?>" />
 
         </p>
 
         <p>
 
-            <label for="email">อีเมล</label>
+            <label for="a_bdate">วันเกิด</label>
 
-            <input type="text" name="email" id="email" value="<?=$row['email'];?>" />
+            <input type="date" name="a_bdate" id="a_bdate" value="<?=$row['a_bdate'];?>" />
 
         </p>
     
         <p>
 
-            <label for="telephone">เบอร์โทร</label>
-            <input type="text" name="telephone" id="telephone" value="<?=$row['telephone'];?>" />
+            <label for="a_movie">หนังที่เล่น</label>
+            <input type="text" name="a_movie" id="a_movie" value="<?=$row['a_movie'];?>" />
 
         </p>
         <input type="submit" class="btn btn-success" value="บันทึก">
