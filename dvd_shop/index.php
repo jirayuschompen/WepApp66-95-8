@@ -17,10 +17,6 @@
     <style>
 * {box-sizing: border-box;}
 
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 body {
     margin: 0;
@@ -29,7 +25,7 @@ body {
     background-image: url('https://i.redd.it/vdz4imev2of71.gif');
     background-size: cover; /* Adjust as needed */
     background-repeat: no-repeat; /* Adjust as needed */
-    background-attachment: fixed; /* Adjust as needed */
+    background-attachment: scroll; 
   }
 .header {
   overflow: hidden;

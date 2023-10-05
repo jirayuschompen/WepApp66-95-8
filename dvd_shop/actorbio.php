@@ -81,21 +81,20 @@ body {
                     <a href="mainmenu.php">Member</a>
                     <a href="movie.php">Movie</a>
                     <a class="active" href="actorbio.php">Actor</a>
-
                 </div>
         </div>
     </header>
 
     <div class="container">
-
+      
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">รหัสนักแสดง</th>
                     <th scope="col-4">ชื่อ-นามสกุล</th>
                     <th scope="col-4">วันเกิด</th>
                     <th scope="col-4">หนังที่เล่น</th>
-                    <th scope="col-4">Edit</th>
+                    <th scope="col-4">แก้ไขข้อมูล</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,7 +102,7 @@ body {
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             echo "<tr><td>".$row["a_id"]."</td>"."<td>".$row["a_name"]." ".$row["a_lastname"]."</td>"."<td>".$row["a_bdate"]."</td>"."<td>".$row["a_movie"]."</td>"."<td>".
-                                 "<a class='btn btn-warning' href='editactor.php?a_id=".$row["a_id"]."'>Edit</a>"."</td>";
+                                 "<a class='btn btn-warning' href='editactor.php?a_id=".$row["a_id"]."'>แก้ไขข้อมูล</a>"."</td>";
                             echo "</tr>";    
                         }
                     }else {
@@ -113,7 +112,7 @@ body {
                 ?>
             </tbody>
         </table>
-        <a class="btn btn-success" href='insertactorbio.php'>Insert Actor</a>
+        <a class="btn btn-success" href='insertactorbio.php'>เพิ่มข้อมูลนักแสดง</a>
     </div>
 </body>
 

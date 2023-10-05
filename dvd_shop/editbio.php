@@ -25,16 +25,16 @@ $row = mysqli_fetch_array($result);
 <form id="form1" name="form1" method="post" action="editsuccess.php">
         <p>
 
-        <label for="id">ID</label>
-        <?php echo $row["id"]?>
+        <label for="id">รหัสสมาชิก</label>
+        <input class="form-control" type="text" name="id" id="id" value="<?=$row['id'];?>" readonly/>
 
         </p>
 
         <p>
 
             <label for="name">ชื่อ</label>
-            <input type="text" name="id" id="id" value="<?=$row['id'];?>" hidden>
-            <input type="text" name="name" id="name" value="<?=$row['name'];?>" />
+            <input class="form-control" type="text" name="id" id="id" value="<?=$row['id'];?>" hidden>
+            <input class="form-control" type="text" name="name" id="name" value="<?=$row['name'];?>" />
 
         </p>
 
@@ -42,7 +42,7 @@ $row = mysqli_fetch_array($result);
 
             <label for="lastname">นามสกุล</label>
 
-            <input type="text" name="lastname" id="lastname" value="<?=$row['lastname'];?>" />
+            <input class="form-control" type="text" name="lastname" id="lastname" value="<?=$row['lastname'];?>" />
 
         </p>
 
@@ -50,19 +50,40 @@ $row = mysqli_fetch_array($result);
 
             <label for="email">อีเมล</label>
 
-            <input type="text" name="email" id="email" value="<?=$row['email'];?>" />
+            <input class="form-control" type="text" name="email" id="email" value="<?=$row['email'];?>" />
 
         </p>
     
         <p>
 
             <label for="telephone">เบอร์โทร</label>
-            <input type="text" name="telephone" id="telephone" value="<?=$row['telephone'];?>" />
+            <input class="form-control" type="text" name="telephone" id="telephone" value="<?=$row['telephone'];?>" />
 
         </p>
         <input type="submit" class="btn btn-success" value="บันทึก">
-        <a class="btn btn-success" href='mainmenu.php'>Home</a>
+        <a class="btn btn-success" href='mainmenu.php'>กลับหน้าหลัก</a>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.9/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // JavaScript for displaying Swal alert after form submission
+        document.querySelector('#form1').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission for now
+            
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your information has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            setTimeout(function() {
+                // After the alert is displayed, submit the form
+                document.querySelector('#form1').submit();
+            }, 1500); // Adjust the timer as needed
+        });
+    </script>
+
 </body>
 
 </html>

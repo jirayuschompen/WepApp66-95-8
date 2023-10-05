@@ -8,8 +8,8 @@ if(!$result) {
     die("Error God Damn it : ". $conn->error);
 } else {
 
-echo "Edit Success <br>";
-header("refresh: 1; url=http://localhost/dvd_shop/actorbio.php");
+
+header("refresh: 0; url=http://localhost/dvd_shop/actorbio.php");
 }
 
 ?>

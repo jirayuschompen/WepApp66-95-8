@@ -91,19 +91,21 @@ body {
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">รหัสสมาชิก</th>
                     <th scope="col-4">ชื่อ-นามสกุล</th>
                     <th scope="col-4">อีเมล</th>
                     <th scope="col-4">เบอร์โทร</th>
-                    <th scope="col-4">Edit</th>
+                    <th scope="col-4">แก้ไขข้อมูล</th>
+                    <th scope="col-4">ลบข้อมูล</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>".$row["id"]."</td>"."<td>".$row["name"]." ".$row["lastname"]."</td>"."<td>".$row["email"]."</td>"."<td>".$row["telephone"]."</td>"."<td>".
-                                 "<a class='btn btn-warning' href='editbio.php?id=".$row["id"]."'>Edit</a>"."</td>";
+                            echo "<tr><td>".$row["id"]."</td>"."<td>".$row["name"]." ".$row["lastname"]."</td>"."<td>".$row["email"]."</td>"."<td>".$row["telephone"]."</td>"
+                            ."<td>"."<a class='btn btn-warning' href='editbio.php?id=".$row["id"]."'>แก้ไขข้อมูล</a>"
+                            ."<td>"."<a class='btn btn-warning' href='deletebio.php?id=".$row["id"]."'>ลบข้อมูล</a>"."</td>";
                             echo "</tr>";    
                         }
                     }else {
@@ -113,7 +115,7 @@ body {
                 ?>
             </tbody>
         </table>
-        <a class="btn btn-success" href='insertbio.php'>Insert Member</a>
+        <a class="btn btn-success" href='insertbio.php'>เพิ่มข้อมูลสมาชิก</a>
     </div>
 </body>
 

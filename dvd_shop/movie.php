@@ -13,7 +13,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta a_name="viewport" content="wa_idth=device-wa_idth, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> 
+        <script>
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector(".header").style.top = "0";
+              } else {
+                document.querySelector(".header").style.top = "0"; // หรือความสูงที่คุณต้องการให้ header เลื่อนขึ้น
+              }
+            }
+        </script>    
+
         <style>
 * {box-sizing: border-box;}
 
@@ -23,10 +35,16 @@ body {
 }
 
 .header {
-  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #f1f1f1;
   padding: 20px 10px;
+  transition: top 0.3s;
+  z-index: 999; /* กำหนดค่า z-index เพื่อให้ header อยู่บนสุด */
 }
+
+
 
 .header a {
   float: left;
@@ -109,28 +127,29 @@ body {
                 <div class="col-12 p-md-5">
                 
                 </div>
-                <div class="col-12 mt-5 p-md-5">
+                <div class="col-12 mt-7 p-md-7">
                     <div class="row">
                         <?php
                             if ($result->num_rows > 0) {
                                 while($row = $result->fetch_assoc()) {
-                                $output = "<div class='col-md-3'>";
-                                    $output .= "<div class='card bg-mix-dark-1'>";
-                                    //$output .= "<img src='.$row["pic_movie"]."' class='card-img-top'>";
+                                    $output = "<div class='col-md-4 mb-4'>"; 
+                                    $output .= "<div class='card bg-mix-dark-1' style='height: 100%;'>";
+                                    $output .= '<iframe width= "auto" height="auto" src="' . $row["d_url"] . '" frameborder="0" allowfullscreen mute autoplay></iframe>';
                                     $output .= "<div class='card-body'>";
-                                    $output .= "<h6 class='card-title fw-bold'>"."ID ".$row["d_id"]."</h6>";
+                                    $output .= "<h6 class='card-title fw-bold'>"."รหัสหนัง ".$row["d_id"]."</h6>";
                                     $output .= "<h5 class='card-title fw-bold'>".$row["d_name"]."</h5>";
                                     $output .= "<p class='small card-text'>".$row["d_detail"]."</p>";
                                     $output .= "<h6 class='small card-text'>"."ระยะเวลา ".$row["d_duration"]."</h6>";
                                     $output .= "<p class='small card-text'>"."วันที่เข้าฉาย ".$row["d_date"]."</p>";
                                     $output .= "<div class='d-flex flex-column'>";
-                                    $output .= "<a href='moviebuy.php?pid=".$row["d_id"]."' class='btn btn-primary mb-2'>สั่งหนัง "."</a>";
+                                    $output .= "<a href='moviebuy.php?pid=".$row["d_id"]."' class='btn btn-primary mb-2'>สั่งซื้อหนัง "."</a>";
                                     //$output .= "<a href='movieedit.php?pid=".$row["d_id"]."' class='btn btn-success'>แก้ไขหนัง</a>";
                                     $output .= "</div>";
                                     $output .= "</div>";
                                     $output .= "</div>";
                                     $output .= "</div>";
                                     echo $output;
+                                    
                                 }
                             }else {
                                 echo "0 results";

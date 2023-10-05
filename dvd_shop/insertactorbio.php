@@ -15,14 +15,14 @@
         <p>
 
 
-            <input type="text" name="a_id" id="a_id" hidden>
+            <input class="form-control" type="text" name="a_id" id="a_id" hidden>
 
         </p>
 
         <p>
 
             <label for="a_name">ชื่อ</label>
-            <input type="text" name="a_name" id="a_name">
+            <input class="form-control" type="text" name="a_name" id="a_name">
 
         </p>
 
@@ -30,7 +30,7 @@
 
             <label for="a_lastname">นามสกุล</label>
 
-            <input type="text" name="a_lastname" id="a_lastname">
+            <input class="form-control" type="text" name="a_lastname" id="a_lastname">
 
         </p>
 
@@ -38,7 +38,7 @@
 
             <label for="a_bdate">วันเกิด</label>
 
-            <input type="date" name="a_bdate" id="a_bdate">
+            <input class="form-control" type="date" name="a_bdate" id="a_bdate">
 
         </p>
 
@@ -46,12 +46,33 @@
 
             <label for="a_movie">หนังที่เล่น</label>
 
-            <input type="text" name="a_movie" id="a_movie">
+            <input class="form-control" type="text" name="a_movie" id="a_movie">
 
         </p>
         <input type="submit" class="btn btn-success" value="บันทึก">
-        <a class="btn btn-success" href='actorbio.php'>Home</a>
+        <a class="btn btn-success" href='actorbio.php'>กลับหน้าหลัก</a>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.9/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // JavaScript for displaying Swal alert after form submission
+        document.querySelector('#form1').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission for now
+            
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your information has been instert',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            setTimeout(function() {
+                // After the alert is displayed, submit the form
+                document.querySelector('#form1').submit();
+            }, 1500); // Adjust the timer as needed
+        });
+    </script>
+
 </body>
 
 </html>
